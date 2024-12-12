@@ -1,0 +1,56 @@
+module.exports = {
+  root: true,
+  env: {
+    browser: true,
+    es2020: true,
+    node: true,
+  },
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:react-hooks/recommended',
+    'plugin:prettier/recommended',
+  ],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: ['./tsconfig.app.json', './tsconfig.node.json'],
+    tsconfigRootDir: __dirname,
+  },
+  plugins: ['react-refresh', '@typescript-eslint', 'security', 'prettier'],
+  rules: {
+    'react-refresh/only-export-components': [
+      'warn',
+      { allowConstantExport: true },
+    ],
+    '@typescript-eslint/explicit-function-return-type': 'warn',
+    '@typescript-eslint/no-explicit-any': 'warn',
+    '@typescript-eslint/no-unused-vars': 'warn',
+    '@typescript-eslint/no-non-null-assertion': 'warn',
+    'security/detect-object-injection': 'warn',
+    'security/detect-unsafe-regex': 'warn',
+    'react-hooks/exhaustive-deps': 'warn',
+    'prettier/prettier': 'error',
+    'no-console': ['warn', { allow: ['warn', 'error'] }],
+    'no-debugger': 'error',
+    'no-alert': 'error',
+    'no-var': 'error',
+    'prefer-const': 'error',
+  },
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
+  ignorePatterns: [
+    'dist',
+    '.eslintrc.cjs',
+    'commitlint.config.js',
+    'postcss.config.js',
+    'tailwind.config.js',
+    'vitest.config.ts',
+    'node_modules',
+    'public',
+  ],
+};
